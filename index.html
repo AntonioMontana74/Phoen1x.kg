@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110D">
+  <meta name="description" content="Phoen1x.kg — сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички: карточка, пластик или дерево. Электронное меню по касанию телефона.">
+  <title>Phoen1x.kg — сайты для заведений и NFC-таблички</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307110D'/%3E%3Cpath d='M22 24a14 14 0 0 1 0 16M30 19a23 23 0 0 1 0 26M38 14a32 32 0 0 1 0 36' fill='none' stroke='%2334C77B' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='32' r='3.5' fill='%2334C77B'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-nfc" viewBox="0 0 32 32">
+      <circle cx="7" cy="16" r="2.4" fill="currentColor"/>
+      <path d="M13 10.5a8 8 0 0 1 0 11M18.5 6a14 14 0 0 1 0 20M24 2a21 21 0 0 1 0 28" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-qr" viewBox="0 0 32 32">
+      <rect x="3" y="3" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      <rect x="19" y="3" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      <rect x="3" y="19" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      <rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="23" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="23" width="2" height="2" fill="currentColor"/>
+      <path d="M19 19h4v4h-4zM26 19h3M19 26h4M26 26h3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M4 16h24M16 4c4 3.6 4 20.4 0 24M16 4c-4 3.6-4 20.4 0 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-card" viewBox="0 0 32 32">
+      <rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M3 13h26M8 20h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-layers" viewBox="0 0 32 32">
+      <path d="m16 4 12 6-12 6L4 10l12-6Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="m4 16 12 6 12-6M4 22l12 6 12-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-tree" viewBox="0 0 32 32">
+      <path d="M16 3 7 14h5l-5 7h18l-5-7h5L16 3Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M16 21v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-wa" viewBox="0 0 32 32">
+      <path d="M16 3.5a12.3 12.3 0 0 0-10.6 18.6L3.5 28.5l6.5-1.8A12.4 12.4 0 1 0 16 3.5Z" fill="currentColor"/>
+      <path d="M12.3 9.6c.4-.7.8-.7 1.2-.7h1c.4 0 .8.3.9.8l.6 2.1c.1.4 0 .7-.3 1l-1 1.1c.4 1 1.2 2.1 2.4 2.8l1.2-1.2c.3-.3.7-.4 1-.2l2.2 1c.4.2.6.5.5.9-.2 1.4-1.2 2.7-1.6 2.9-.5.3-2.1 1.2-4.2-1-2-2.1-3.5-4.3-4.3-6.1-.4-1-.3-1.9.1-2.4l.3-.9Z" fill="#07110D"/>
+    </symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24">
+      <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Phoen1x.kg — на главную">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="#i-nfc"/></svg></span>
+        <span class="brand-name">Phoen1x<span>.kg</span></span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Основная навигация">
+        <a href="#features">Что делаем</a>
+        <a href="#how">Как работает</a>
+        <a href="#tariffs">Тарифы</a>
+        <a href="#calc">Калькулятор</a>
+        <a href="#faq">Вопросы</a>
+        <a class="nav-cta-mobile" href="#contact">Оставить заявку</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-wa" id="headerWa" href="https://wa.me/996220233693" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
+        </a>
+        <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="live-badge"><span class="live-dot" aria-hidden="true"></span>Сайты и NFC-таблички для заведений</p>
+          <h1>Сайт заведения.<br><span>Меню — по касанию.</span></h1>
+          <p class="hero-lead">Делаем сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички. Гость подносит телефон к табличке — и сразу видит ваше меню на сайте. Без приложений и лишних шагов.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#calc">Посчитать стоимость <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#how">Как это работает</a>
+          </div>
+          <div class="hero-facts">
+            <div><strong>от <span class="roll-number" data-value="3">3</span> дней</strong><span>готовый сайт</span></div>
+            <div><strong>от <span class="roll-number" data-value="990">990</span> сом</strong><span>NFC-табличка с дизайном</span></div>
+            <div><strong><span class="roll-number" data-value="0" data-from="9">0</span> сом</strong><span>приложение гостю не нужно</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="nfc-card" aria-hidden="true">
+            <div class="nfc-card-rings"><i></i><i></i><i></i></div>
+            <svg class="nfc-card-icon"><use href="#i-nfc"/></svg>
+            <strong>NFC</strong>
+            <span>поднесите телефон</span>
+          </div>
+
+          <div class="phone" role="group" aria-label="Демонстрация сайта и меню">
+            <div class="phone-frame">
+              <div class="phone-notch" aria-hidden="true"></div>
+              <div class="phone-screen">
+                <div class="screen-status"><span>9:41</span><span class="screen-status-icons" aria-hidden="true">▮▮▮ ▰</span></div>
+
+                <div class="screen-view is-active" data-screen="tap">
+                  <div class="tap-visual" aria-hidden="true"><i></i><i></i><i></i><svg><use href="#i-nfc"/></svg></div>
+                  <p class="tap-kicker">Приложите телефон</p>
+                  <p class="tap-title">к табличке</p>
+                  <p class="tap-note">Меню откроется на сайте.<br>Скачивать ничего не нужно.</p>
+                </div>
+
+                <div class="screen-view" data-screen="menu">
+                  <div class="menu-head"><div><small>Наше меню</small><strong>Терраса</strong></div><span class="menu-bag">☰</span></div>
+                  <div class="menu-tabs"><span class="is-active">Популярное</span><span>Горячее</span><span>Напитки</span></div>
+                  <ul class="dish-list">
+                    <li><span class="dish-thumb thumb-1"></span><span class="dish-info"><strong>Паста с курицей</strong><small>Сливки, пармезан, зелень</small></span><b>690 с</b></li>
+                    <li><span class="dish-thumb thumb-2"></span><span class="dish-info"><strong>Салат с киноа</strong><small>Авокадо, томаты, лайм</small></span><b>520 с</b></li>
+                    <li><span class="dish-thumb thumb-3"></span><span class="dish-info"><strong>Латте</strong><small>Овсяное молоко</small></span><b>280 с</b></li>
+                  </ul>
+                  <div class="menu-total"><span>Меню целиком</span><strong>Смотреть все</strong><span class="menu-order">Открыть <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+                </div>
+
+                <div class="screen-view" data-screen="site">
+                  <div class="site-demo">
+                    <div class="site-demo-head"><span class="site-demo-logo">ТЕРРАСА</span><span class="site-demo-menu">МЕНЮ · КОНТАКТЫ</span></div>
+                    <div class="site-demo-hero">
+                      <small>КАФЕ · ОШ</small>
+                      <strong>Вкусно<br>и по-домашнему</strong>
+                      <span class="site-demo-btn">Посмотреть меню</span>
+                    </div>
+                    <div class="site-demo-cards"><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-controls" role="group" aria-label="Переключить экран демо">
+            <button class="is-active" type="button" data-go="tap">Касание</button>
+            <button type="button" data-go="menu">Меню</button>
+            <button type="button" data-go="site">Сайт</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>САЙТ ДЛЯ ЗАВЕДЕНИЯ <i>✳</i> NFC-ТАБЛИЧКИ <i>✳</i> КАРТОЧКА КАК БАНКОВСКАЯ <i>✳</i> ПЛАСТИК <i>✳</i> ДЕРЕВО <i>✳</i> ЭЛЕКТРОННОЕ МЕНЮ <i>✳</i> QR-КОД <i>✳</i>&nbsp;</span>
+          <span>САЙТ ДЛЯ ЗАВЕДЕНИЯ <i>✳</i> NFC-ТАБЛИЧКИ <i>✳</i> КАРТОЧКА КАК БАНКОВСКАЯ <i>✳</i> ПЛАСТИК <i>✳</i> ДЕРЕВО <i>✳</i> ЭЛЕКТРОННОЕ МЕНЮ <i>✳</i> QR-КОД <i>✳</i>&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">01 — проблема</span>
+          <h2>Когда сайта нет,<br>гость проходит мимо</h2>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-item">
+            <span class="problem-quote">«</span>
+            <h3>«Где ваше меню?»</h3>
+            <p>Гость ищет в соцсетях, находит старое фото с неактуальными ценами и уходит к соседям.</p>
+          </article>
+          <article class="problem-item">
+            <span class="problem-quote">«</span>
+            <h3>«Сайт есть, но старый»</h3>
+            <p>Страница не открывается на телефоне, фотографии мелкие, а контакты спрятаны где-то внизу.</p>
+          </article>
+          <article class="problem-item">
+            <span class="problem-quote">«</span>
+            <h3>«Бумага облезла»</h3>
+            <p>Меню в папке испачкалось, цены поменялись, а красивой таблички на столе так и не появилось.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section section-features" id="features">
+      <div class="container">
+        <div class="section-head section-head-split">
+          <div>
+            <span class="section-index">02 — что делаем</span>
+            <h2>Сайт, который хочется<br>открыть</h2>
+          </div>
+          <p class="section-note">Сайт с меню и аккуратные NFC-таблички. Ничего лишнего: никаких касс, заказов и сложных систем.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature feature-main">
+            <div class="feature-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></div>
+            <div class="feature-body">
+              <h3>Сайт для заведения</h3>
+              <p>Страница с меню, фотографиями, адресом и контактами. Удобно читается с телефона и открывается по ссылке из соцсетей, 2ГИС или таблички.</p>
+              <ul class="feature-tags"><li>Мобильная версия</li><li>Меню с ценами и фото</li><li>Своя ссылка и QR-код</li></ul>
+            </div>
+            <div class="feature-art" aria-hidden="true"><span></span><span></span><span></span></div>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><svg aria-hidden="true"><use href="#i-card"/></svg></div>
+            <h3>NFC-карточка</h3>
+            <p>Тонкая, как банковская карта. Лежит на столе или у стойки — почти не занимает места.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></div>
+            <h3>Пластиковая табличка</h3>
+            <p>Плотная, с вашим логотипом. Хорошо смотрится на столах, витрине и у входа.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><svg aria-hidden="true"><use href="#i-tree"/></svg></div>
+            <h3>Деревянная табличка</h3>
+            <p>Натуральное дерево с гравировкой. Солидный вариант для ресторана и премиум-подачи.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><svg aria-hidden="true"><use href="#i-qr"/></svg></div>
+            <h3>QR-код в подарок</h3>
+            <p>Дополнительный вход в то же меню. Можно поставить на стойку, в доставку или в сторис.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">03 — запуск</span>
+          <h2>От идеи до таблички<br>на столе</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="step-num roll-number" data-value="1">1</span><h3>Присылаете материалы</h3><p>Меню, фотографии, логотип и пару слов о заведении. Работать можно даже из чата в WhatsApp.</p></li>
+          <li><span class="step-num roll-number" data-value="2">2</span><h3>Собираем сайт и таблички</h3><p>Делаем сайт, верстаем меню и рисуем табличку в вашем стиле: карточка, пластик или дерево.</p></li>
+          <li><span class="step-num roll-number" data-value="3">3</span><h3>Отдаём готовое</h3><p>Присылаем ссылку на сайт и таблички с чипами. Остаётся расставить их по залу — и можно принимать гостей.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TARIFFS -->
+    <section class="section section-tariffs" id="tariffs">
+      <div class="container">
+        <div class="section-head section-head-split">
+          <div>
+            <span class="section-index">04 — тарифы на сайты</span>
+            <h2>Три варианта<br>под вашу задачу</h2>
+          </div>
+          <p class="section-note">Сайты от 9 990 до 28 990 сом. NFC-таблички считаются отдельно — в калькуляторе или по запросу.</p>
+        </div>
+
+        <div class="tariff-grid">
+          <article class="tariff">
+            <div class="tariff-top"><h3>Старт</h3><p>Чтобы вас нашли и увидели меню.</p></div>
+            <div class="tariff-price"><strong><span class="roll-number" data-value="9990">9 990</span></strong><span>сом</span></div>
+            <a class="btn btn-outline" href="#contact">Выбрать Старт <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <ul class="tariff-list">
+              <li>Сайт-визитка с меню</li>
+              <li>До 30 позиций</li>
+              <li>Мобильная версия</li>
+              <li>Адрес, контакты и карта</li>
+              <li>QR-код на меню</li>
+              <li>Готово за 3 дня</li>
+            </ul>
+          </article>
+
+          <article class="tariff tariff-featured">
+            <span class="tariff-badge">Выбирают чаще</span>
+            <div class="tariff-top"><h3>Бизнес</h3><p>Полноценный сайт с лицом заведения.</p></div>
+            <div class="tariff-price"><strong><span class="roll-number" data-value="18990">18 990</span></strong><span>сом</span></div>
+            <a class="btn btn-primary" href="#contact">Выбрать Бизнес <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <ul class="tariff-list">
+              <li>Сайт до 5 страниц</li>
+              <li>До 100 позиций меню</li>
+              <li>Галерея и отзывы</li>
+              <li>Форма обратной связи</li>
+              <li>Дизайн по вашему бренду</li>
+              <li>Готово за 5 дней</li>
+            </ul>
+          </article>
+
+          <article class="tariff">
+            <div class="tariff-top"><h3>Премиум</h3><p>Когда важна каждая деталь.</p></div>
+            <div class="tariff-price"><strong><span class="roll-number" data-value="28990">28 990</span></strong><span>сом</span></div>
+            <a class="btn btn-outline" href="#contact">Выбрать Премиум <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <ul class="tariff-list">
+              <li>Сайт без ограничения страниц</li>
+              <li>Меню любой длины</li>
+              <li>Индивидуальный дизайн</li>
+              <li>Небольшая анимация и эффекты</li>
+              <li>Приоритетная поддержка</li>
+              <li>Готово за 7 дней</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="addons">
+          <div class="addons-head"><h3>NFC-таблички</h3><p>Цена за штуку, дизайн с логотипом включён</p></div>
+          <div class="addon"><strong>Карточка</strong><span><span class="roll-number" data-value="990">990</span> сом / шт</span><small>как банковская карта</small></div>
+          <div class="addon"><strong>Пластик</strong><span><span class="roll-number" data-value="1490">1 490</span> сом / шт</span><small>плотная табличка</small></div>
+          <div class="addon"><strong>Дерево</strong><span><span class="roll-number" data-value="2490">2 490</span> сом / шт</span><small>массив с гравировкой</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="section section-calc" id="calc">
+      <div class="container calc-grid">
+        <div class="calc-copy">
+          <span class="section-index">05 — калькулятор</span>
+          <h2>Посчитайте сайт<br>и таблички</h2>
+          <p>Выберите сайт, материал и количество табличек — сумма получится сразу. Без звонка, без заявки и без ожидания.</p>
+          <div class="calc-hint"><svg aria-hidden="true"><use href="#i-check"/></svg><span>В стоимость таблички уже входит дизайн с вашим логотипом и NFC-чип.</span></div>
+        </div>
+
+        <form class="calc-card" id="calcForm" novalidate>
+          <div class="calc-row">
+            <label for="sitePlan">Сайт заведения</label>
+            <select id="sitePlan" name="sitePlan">
+              <option value="start">Старт — 9 990 сом</option>
+              <option value="business">Бизнес — 18 990 сом</option>
+              <option value="premium">Премиум — 28 990 сом</option>
+            </select>
+          </div>
+
+          <div class="calc-row">
+            <label for="plateCount">Сколько табличек нужно</label>
+            <div class="plate-count-row">
+              <button class="step-btn" type="button" data-step="-1" aria-label="Уменьшить количество">−</button>
+              <input id="plateCount" name="plateCount" type="number" min="1" max="500" value="15">
+              <button class="step-btn" type="button" data-step="1" aria-label="Увеличить количество">+</button>
+              <span>штук</span>
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <span class="calc-label">Материал таблички</span>
+            <div class="plate-options" role="radiogroup" aria-label="Материал таблички">
+              <label class="plate-option is-selected">
+                <input type="radio" name="plateType" value="card" checked>
+                <span class="plate-visual-wrap"><span class="plate-visual plate-visual-card" aria-hidden="true"><i></i></span></span>
+                <span class="plate-name">Карточка</span>
+                <span class="plate-price"><span class="roll-number" data-value="990">990</span> сом / шт</span>
+                <svg class="plate-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </label>
+              <label class="plate-option">
+                <input type="radio" name="plateType" value="plastic">
+                <span class="plate-visual-wrap"><span class="plate-visual plate-visual-plastic" aria-hidden="true"></span></span>
+                <span class="plate-name">Пластик</span>
+                <span class="plate-price"><span class="roll-number" data-value="1490">1 490</span> сом / шт</span>
+                <svg class="plate-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </label>
+              <label class="plate-option">
+                <input type="radio" name="plateType" value="wood">
+                <span class="plate-visual-wrap"><span class="plate-visual plate-visual-wood" aria-hidden="true"></span></span>
+                <span class="plate-name">Дерево</span>
+                <span class="plate-price"><span class="roll-number" data-value="2490">2 490</span> сом / шт</span>
+                <svg class="plate-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <span class="calc-result-label">Итого за сайт и таблички · считается сразу</span>
+            <strong id="estimate">—</strong>
+            <span class="sr-only" id="estimateAnnounce" aria-live="polite"></span>
+            <p id="breakdown"></p>
+            <a class="btn btn-primary calc-cta" id="calcCta" href="#contact">Заказать по этой цене <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section section-cases" id="cases">
+      <div class="container">
+        <div class="section-head section-head-split">
+          <div>
+            <span class="section-index">06 — до и после</span>
+            <h2>Что меняется<br>после запуска</h2>
+          </div>
+          <p class="section-note">Примеры того, как выглядит заведение до и после нового сайта и NFC-табличек.</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case">
+            <header><span class="case-type">Кофейня · Ош</span><h3>Меню в чате</h3></header>
+            <div class="case-col case-was"><span>Было</span><p>Гость спрашивает цены в директ, ждёт ответа и часто уходит, так и не дождавшись.</p></div>
+            <div class="case-col case-now"><span>Стало</span><p>Ссылка в профиле ведёт на сайт с меню, а карточка на столе открывает его одним касанием.</p></div>
+          </article>
+
+          <article class="case">
+            <header><span class="case-type">Ресторан · Бишкек</span><h3>Лицо заведения</h3></header>
+            <div class="case-col case-was"><span>Было</span><p>О старом сайте стыдно рассказывать: тёмные фото, мелкий текст, ни адреса, ни телефона.</p></div>
+            <div class="case-col case-now"><span>Стало</span><p>Аккуратный сайт с галереей блюд и понятными контактами. Его не страшно кинуть гостю.</p></div>
+          </article>
+
+          <article class="case">
+            <header><span class="case-type">Гриль-бар · Кыргызстан</span><h3>Табличка на столе</h3></header>
+            <div class="case-col case-was"><span>Было</span><p>Бумажное меню в пластиковой папке перепачкалось и выглядело как одноразовая листовка.</p></div>
+            <div class="case-col case-now"><span>Стало</span><p>Деревянная табличка с логотипом солидно смотрится на столе и ведёт прямо в меню на сайте.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq-grid">
+        <div class="section-head">
+          <span class="section-index">07 — вопросы</span>
+          <h2>Коротко<br>о главном</h2>
+          <p class="faq-aside">Не нашли ответ? Напишите нам в WhatsApp — ответим по делу.</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>Что такое NFC-табличка?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Это табличка со встроенным чипом. Гость подносит к ней телефон — и браузер сам открывает ваше меню на сайте. Ни скачивать, ни сканировать ничего не нужно.</p></details>
+          <details><summary>Гостю нужно ставить приложение?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Нет. Меню открывается в обычном браузере телефона. Подойдёт любой смартфон с поддержкой NFC.</p></details>
+          <details><summary>Какие бывают таблички?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Три варианта: тонкая карточка как банковская, плотная пластиковая табличка и деревянная с гравировкой. Дизайн с вашим логотипом входит в цену.</p></details>
+          <details><summary>Можно ли менять меню на сайте самим?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Да. Позиции, цены и фотографии меняются в панели без разработчика. Ссылка и таблички остаются теми же.</p></details>
+          <details><summary>Сколько стоит сайт?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>От 9 990 до 28 990 сом — в зависимости от объёма. Таблички считаются отдельно: от 990 сом за штуку. Точную сумму покажет калькулятор.</p></details>
+          <details><summary>Как быстро всё будет готово?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Сайт «Старт» — от 3 дней, «Бизнес» — около 5 дней, «Премиум» — до недели. Таблички делаются вместе с сайтом.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="section-index">08 — заявка</span>
+          <h2>Расскажите,<br>что нужно</h2>
+          <p>Имя, номер и пара слов о задаче. Ответим в рабочее время — обычно в WhatsApp.</p>
+          <div class="contact-details">
+            <a href="https://wa.me/996220233693" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span><small>WhatsApp</small><strong>+996 220 233 693</strong></span></a>
+            <a href="tel:+996220233693"><span class="contact-phone-icon" aria-hidden="true">✆</span><span><small>Телефон</small><strong>+996 220 233 693</strong></span></a>
+          </div>
+          <p class="contact-schedule">Пн–Сб, 10:00–19:00 · обсудить задачу бесплатно</p>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row"><label for="cName">Ваше имя</label><input id="cName" name="name" type="text" placeholder="Как к вам обращаться" required></div>
+          <div class="form-row"><label for="cPhone">Телефон или WhatsApp</label><input id="cPhone" name="phone" type="tel" placeholder="+996 ..." required></div>
+          <div class="form-row"><label for="cMessage">Что нужно</label><textarea id="cMessage" name="message" rows="4" placeholder="Например: сайт с меню и 15 NFC-табличек из пластика"></textarea></div>
+          <button class="btn btn-primary" type="submit">Отправить заявку <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>. Откроется чат WhatsApp с готовым сообщением.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <a class="brand" href="#top"><span class="brand-mark"><svg aria-hidden="true"><use href="#i-nfc"/></svg></span><span class="brand-name">Phoen1x<span>.kg</span></span></a>
+      <p>Сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички для меню.</p>
+      <nav aria-label="Навигация в подвале">
+        <a href="#features">Что делаем</a><a href="#tariffs">Тарифы</a><a href="#calc">Калькулятор</a><a href="#faq">Вопросы</a><a href="#contact">Контакты</a><a href="privacy.html">Политика конфиденциальности</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 Phoen1x.kg. Все права защищены.</span><span>Сайт и таблички — одним подрядчиком.</span></div>
+  </footer>
+
+  <a class="floating-wa" href="https://wa.me/996220233693" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+  <script src="script.js"></script>
+</body>
+</html>
