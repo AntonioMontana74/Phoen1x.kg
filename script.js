@@ -5,31 +5,39 @@
    ========================================================= */
 
 const WHATSAPP_NUMBER = '996220233693';
-const WHATSAPP_NAME = 'Phoen1x.kg';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const waLink = (text) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 const numberFormatter = new Intl.NumberFormat('ru-RU');
-const money = (value) => numberFormatter.format(Math.round(value)) + ' сом';
+const tr = (text) => (window.I18N ? window.I18N.t(text) : text);
+const currencySuffix = () => ' ' + tr('сом');
+const money = (value) => numberFormatter.format(Math.round(value)) + currencySuffix();
 const formatNumber = (value, suffix = '') => numberFormatter.format(Math.round(value)) + suffix;
 
 /* ---------- Мобильное меню ---------- */
 const burger = document.getElementById('burger');
 const nav = document.getElementById('mainNav');
 
+function syncBurgerLabel() {
+  burger.setAttribute(
+    'aria-label',
+    tr(nav.classList.contains('is-open') ? 'Закрыть меню' : 'Открыть меню')
+  );
+}
+
 function closeNav() {
   nav.classList.remove('is-open');
   burger.setAttribute('aria-expanded', 'false');
-  burger.setAttribute('aria-label', 'Открыть меню');
+  syncBurgerLabel();
   document.body.style.overflow = '';
 }
 
 burger.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   burger.setAttribute('aria-expanded', String(open));
-  burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  syncBurgerLabel();
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
@@ -80,9 +88,15 @@ if (!reducedMotion) {
 }
 
 /* ---------- Ссылка в шапке ---------- */
-document.getElementById('headerWa').href = waLink(
-  'Здравствуйте! Хочу узнать о сайте для заведения и NFC-табличках. Подскажите, с чего начать?'
-);
+const headerWa = document.getElementById('headerWa');
+
+function updateHeaderWa() {
+  headerWa.href = waLink(
+    tr('Здравствуйте! Хочу узнать о сайте для заведения и NFC-табличках. Подскажите, с чего начать?')
+  );
+}
+
+updateHeaderWa();
 
 /* ---------- Калькулятор: сайт + NFC-таблички ---------- */
 const sitePlan = document.getElementById('sitePlan');
@@ -156,11 +170,14 @@ const plateNames = {
   wood: 'деревянная табличка'
 };
 
+const siteName = (key) => tr(siteNames[key]);
+const plateName = (key) => tr(plateNames[key]);
+
 function selectedMaterial() {
   return plateTypeInputs.find((input) => input.checked)?.value || 'card';
 }
 
-function animateEstimate(value) {
+function animateEstimate(value, immediate = false) {
   if (changeTimer) clearTimeout(changeTimer);
 
   estimate.classList.add('is-changing');
@@ -174,9 +191,9 @@ function animateEstimate(value) {
 
   animateNumber(estimate, value, {
     from: displayedTotal || value,
-    suffix: ' сом',
+    suffix: currencySuffix(),
     duration: 480,
-    immediate: firstCalculation || reducedMotion
+    immediate: immediate || firstCalculation || reducedMotion
   });
   displayedTotal = value;
 }
@@ -187,7 +204,7 @@ function syncPlateOptions() {
   });
 }
 
-function updateCalculator() {
+function updateCalculator(immediate = false) {
   const plan = sitePlan.value;
   const material = selectedMaterial();
   const quantity = Math.max(1, Math.min(500, Number(plateCount.value) || 1));
@@ -198,16 +215,16 @@ function updateCalculator() {
   const total = site + plates;
   currentTotal = total;
 
-  animateEstimate(total);
-  estimateAnnounce.textContent = `Итого: ${money(total)}`;
+  animateEstimate(total, immediate);
+  estimateAnnounce.textContent = `${tr('Итого')}: ${money(total)}`;
   breakdown.textContent =
-    `Сайт «${siteNames[plan]}» — ${money(site)} · ${plateNames[material]} ${quantity} × ${money(platePrice)} — ${money(plates)}`;
+    `${tr('Сайт')} «${siteName(plan)}» — ${money(site)} · ${plateName(material)} ${quantity} × ${money(platePrice)} — ${money(plates)}`;
 
   const message = [
-    'Здравствуйте! Хочу посчитать заказ.',
-    `Сайт: «${siteNames[plan]}» — ${money(site)}.`,
-    `Таблички: ${plateNames[material]}, ${quantity} шт. × ${money(platePrice)} = ${money(plates)}.`,
-    `Итого ориентировочно: ${money(total)}.`
+    tr('Здравствуйте! Хочу посчитать заказ.'),
+    `${tr('Сайт:')} «${siteName(plan)}» — ${money(site)}.`,
+    `${tr('Таблички:')} ${plateName(material)}, ${quantity} ${tr('шт.')} × ${money(platePrice)} = ${money(plates)}.`,
+    `${tr('Итого ориентировочно:')} ${money(total)}.`
   ].join('\n');
 
   calcCta.href = waLink(message);
@@ -215,8 +232,8 @@ function updateCalculator() {
 }
 
 [sitePlan, plateCount].forEach((input) => {
-  input.addEventListener('input', updateCalculator);
-  input.addEventListener('change', updateCalculator);
+  input.addEventListener('input', () => updateCalculator());
+  input.addEventListener('change', () => updateCalculator());
 });
 
 plateTypeInputs.forEach((input) => {
@@ -240,6 +257,13 @@ document.querySelectorAll('.step-btn').forEach((button) => {
 
 updateCalculator();
 
+/* ---------- Смена языка: пересчитываем сумму и ссылки ---------- */
+document.addEventListener('phoen1x:langchange', () => {
+  updateHeaderWa();
+  syncBurgerLabel();
+  updateCalculator(true);
+});
+
 /* ---------- Форма заявки ---------- */
 const contactForm = document.getElementById('contactForm');
 
@@ -259,20 +283,20 @@ contactForm.addEventListener('submit', (event) => {
   }
 
   if (!name || !phoneValue) {
-    status.style.color = '#e8a07a';
-    status.textContent = 'Укажите имя и номер телефона — без них не сможем ответить.';
+    status.style.color = '#ff6b6b';
+    status.textContent = tr('Укажите имя и номер телефона — без них не сможем ответить.');
     (name ? document.getElementById('cPhone') : document.getElementById('cName')).focus();
     return;
   }
 
   status.style.color = '';
-  status.textContent = 'Открываем WhatsApp с готовым сообщением…';
+  status.textContent = tr('Открываем WhatsApp с готовым сообщением…');
 
   const text = [
-    `Здравствуйте, ${WHATSAPP_NAME}!`,
-    `Меня зовут ${name}.`,
-    `Телефон: ${phoneValue}.`,
-    message ? `Задача: ${message}` : ''
+    tr('Здравствуйте, Phoen1x.kg!'),
+    `${tr('Меня зовут')} ${name}.`,
+    `${tr('Телефон:')} ${phoneValue}.`,
+    message ? `${tr('Задача:')} ${message}` : ''
   ].filter(Boolean).join('\n');
 
   window.location.href = waLink(text);
@@ -321,7 +345,7 @@ if (!reducedMotion && 'IntersectionObserver' in window) {
       const el = entry.target;
 
       if (el === estimate) {
-        animateNumber(estimate, currentTotal, { from: 0, suffix: ' сом', duration: 700 });
+        animateNumber(estimate, currentTotal, { from: 0, suffix: currencySuffix(), duration: 700 });
       } else {
         const target = Number(el.dataset.value);
         if (!Number.isFinite(target)) return;
