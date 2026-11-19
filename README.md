@@ -30,6 +30,12 @@ npx serve .
 - Контакты: `+996 220 233 693`, ссылки `wa.me/996220233693` и `tel:+996220233693`.
   При смене номера поправьте константу `WHATSAPP_NUMBER` в `script.js` и вхождения в `index.html`.
 
+## Ссылки
+
+- Живой сайт: https://phoenixkg.vercel.app/
+- Репозиторий: https://github.com/AntonioMontana74/Phoen1x.kg
+- Instagram: https://www.instagram.com/phoen1x.kg/
+
 ## Что проверить перед публикацией
 
 1. Цены тарифов и табличек — подтвердить финальные значения.
