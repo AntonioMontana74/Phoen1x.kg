@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phoenixkg.vercel.app/sitemap.xml
