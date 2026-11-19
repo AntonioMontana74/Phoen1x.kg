@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#030906">
   <meta name="description" content="Phoen1x.kg — сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички по Кыргызстану: карточка, пластик или дерево. Электронное меню по касанию телефона.">
-  <title>Phoen1x.kg — сайты для заведений и NFC-таблички</title>
+  <title>Phoen1x.kg — сайты для заведений и NFC-таблички в Кыргызстане в Кыргызстане</title>
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://phoenixkg.vercel.app/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Phoen1x.kg">
-  <meta property="og:title" content="Phoen1x.kg — сайты для заведений и NFC-таблички">
+  <meta property="og:title" content="Phoen1x.kg — сайты для заведений и NFC-таблички в Кыргызстане">
   <meta property="og:description" content="Сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички. Меню по касанию телефона — без приложений.">
   <meta property="og:url" content="https://phoenixkg.vercel.app/">
   <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Phoen1x.kg — сайты для заведений и NFC-таблички">
+  <meta name="twitter:title" content="Phoen1x.kg — сайты для заведений и NFC-таблички в Кыргызстане">
   <meta name="twitter:description" content="Сайты для заведений и NFC-таблички: карточка, пластик или дерево.">
 
   <!-- После подтверждения прав в Яндекс.Вебмастере и Google Search Console вставьте сюда выданные meta-теги:
@@ -27,18 +27,89 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Phoen1x.kg",
-    "url": "https://phoenixkg.vercel.app/",
-    "telephone": "+996220233693",
-    "description": "Сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички для электронного меню.",
-    "areaServed": {
-      "@type": "Country",
-      "name": "Кыргызстан"
-    },
-    "sameAs": [
-      "https://wa.me/996220233693",
-      "https://www.instagram.com/phoen1x.kg/"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://phoenixkg.vercel.app/#organization",
+        "name": "Phoen1x.kg",
+        "url": "https://phoenixkg.vercel.app/",
+        "telephone": "+996220233693",
+        "description": "Сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички для электронного меню.",
+        "areaServed": { "@type": "Country", "name": "Кыргызстан" },
+        "sameAs": [
+          "https://wa.me/996220233693",
+          "https://www.instagram.com/phoen1x.kg/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://phoenixkg.vercel.app/#website",
+        "url": "https://phoenixkg.vercel.app/",
+        "name": "Phoen1x.kg",
+        "inLanguage": "ru",
+        "publisher": { "@id": "https://phoenixkg.vercel.app/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://phoenixkg.vercel.app/#webpage",
+        "url": "https://phoenixkg.vercel.app/",
+        "name": "Phoen1x.kg — сайты для заведений и NFC-таблички в Кыргызстане",
+        "isPartOf": { "@id": "https://phoenixkg.vercel.app/#website" },
+        "about": { "@id": "https://phoenixkg.vercel.app/#organization" },
+        "inLanguage": "ru"
+      },
+      {
+        "@type": "Service",
+        "name": "Сайты для заведений и NFC-таблички",
+        "serviceType": "Сайты для ресторанов, кафе и кофеен; дизайн и производство NFC-табличек",
+        "provider": { "@id": "https://phoenixkg.vercel.app/#organization" },
+        "areaServed": { "@type": "Country", "name": "Кыргызстан" },
+        "offers": [
+          { "@type": "Offer", "name": "Сайт «Старт»", "price": "9990", "priceCurrency": "KGS" },
+          { "@type": "Offer", "name": "Сайт «Бизнес»", "price": "18990", "priceCurrency": "KGS" },
+          { "@type": "Offer", "name": "Сайт «Премиум»", "price": "28990", "priceCurrency": "KGS" },
+          { "@type": "Offer", "name": "NFC-табличка «Карточка»", "price": "990", "priceCurrency": "KGS" },
+          { "@type": "Offer", "name": "NFC-табличка «Пластик»", "price": "1490", "priceCurrency": "KGS" },
+          { "@type": "Offer", "name": "NFC-табличка «Дерево»", "price": "2490", "priceCurrency": "KGS" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://phoenixkg.vercel.app/#faq",
+        "isPartOf": { "@id": "https://phoenixkg.vercel.app/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Что такое NFC-табличка?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Это табличка со встроенным чипом. Гость подносит к ней телефон — и браузер сам открывает ваше меню на сайте. Ни скачивать, ни сканировать ничего не нужно." }
+          },
+          {
+            "@type": "Question",
+            "name": "Гостю нужно ставить приложение?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Нет. Меню открывается в обычном браузере телефона. Подойдёт любой смартфон с поддержкой NFC." }
+          },
+          {
+            "@type": "Question",
+            "name": "Какие бывают таблички?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Три варианта: тонкая карточка как банковская, плотная пластиковая табличка и деревянная с гравировкой. Дизайн с вашим логотипом входит в цену." }
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли менять меню на сайте самим?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Да. Позиции, цены и фотографии меняются в панели без разработчика. Ссылка и таблички остаются теми же." }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько стоит сайт?",
+            "acceptedAnswer": { "@type": "Answer", "text": "От 9 990 до 28 990 сом — в зависимости от объёма. Таблички считаются отдельно: от 990 сом за штуку. Точную сумму покажет калькулятор." }
+          },
+          {
+            "@type": "Question",
+            "name": "Как быстро всё будет готово?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Сайт «Старт» — от 3 дней, «Бизнес» — около 5 дней, «Премиум» — до недели. Таблички делаются вместе с сайтом." }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -517,7 +588,7 @@
   <footer class="site-footer">
     <div class="container footer-top">
       <a class="brand" href="#top"><span class="brand-mark"><svg aria-hidden="true"><use href="#i-nfc"/></svg></span><span class="brand-name">Phoen1x<span>.kg</span></span></a>
-      <p>Сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички для меню.</p>
+      <p>Сайты для ресторанов, кафе и кофеен и дизайнерские NFC-таблички для меню. Работаем по Кыргызстану: Бишкек, Ош и другие города.</p>
       <nav aria-label="Навигация в подвале">
         <a href="#features">Что делаем</a><a href="#tariffs">Тарифы</a><a href="#calc">Калькулятор</a><a href="#faq">Вопросы</a><a href="#contact">Контакты</a><a href="https://www.instagram.com/phoen1x.kg/" target="_blank" rel="noopener">Instagram</a><a href="privacy.html">Политика конфиденциальности</a>
       </nav>
