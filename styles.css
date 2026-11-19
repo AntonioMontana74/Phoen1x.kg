@@ -330,8 +330,8 @@ section[id] { scroll-margin-top: var(--header-h); }
 .tariff-top p { color: var(--muted); font-size: 14px; min-height: 44px; }
 .tariff-price { display: flex; align-items: baseline; gap: 8px; margin: 26px 0 24px; }
 .tariff-price span { color: var(--muted); font-size: 13px; }
-.tariff-price strong { font-size: clamp(30px, 3.2vw, 42px); color: var(--cream); }
-.tariff-featured .tariff-price strong { color: var(--green-soft); }
+.tariff-price strong { font-size: clamp(30px, 3.2vw, 42px); color: #fff; }
+.tariff-featured .tariff-price strong { color: #fff; }
 .tariff-list { margin-top: 28px; display: flex; flex-direction: column; gap: 13px; }
 .tariff-list li { position: relative; padding-left: 26px; font-size: 14px; color: #cbd8ce; }
 .tariff-list li::before { content: ""; position: absolute; left: 0; top: 6px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--green); }
